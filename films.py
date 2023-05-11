@@ -79,7 +79,7 @@ def get_user_info(conn, curs, user):
 
     resultat = {}  # création de la dictionnaire
 
-    resultat["id"] = user_data[0][0] # le résultat est une ligne suelement, donc il faut prendre le tuple de la 0ème ligne
+    resultat["id"] = user_data[0][0] # le résultat est une ligne seulement, donc il faut prendre le tuple de la 0ème ligne
     resultat["name"] = user_data[0][1]
     resultat["birthdate"] = user_data[0][2]
     resultat["address"] = user_data[0][3]

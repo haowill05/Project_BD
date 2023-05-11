@@ -22,3 +22,13 @@ def getGames(conn, curs):
         result["data"].append(dico)
 
     return result
+
+
+def getUser(conn, curs, user):
+    mysql_query = """
+    SELECT IdUser FROM User WHERE name=%s
+    """
+    curs.execute(mysql_query, ((user,)))
+    user = curs.fetchall
+    result = {}
+

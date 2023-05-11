@@ -27,8 +27,10 @@ cursor = connection.cursor()
 
 @app.route("/", methods=['GET'])
 def homeTest():
-    result = getGames(connection, cursor)
-    return jsonify(result)
+    return render_template("front.html")
+    #
+    #result = getGames(connection, cursor)
+    #return jsonify(result)
 
 
 @app.route("/index", methods=['GET'])
@@ -42,9 +44,13 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-@app.route("login", methods=['POST', 'GET'])
+@app.route("/login", methods=['POST', 'GET'])
 def login():
     return render_template("login.html")
+
+@app.route("/games", methods=['GET'])
+def viewGames():
+    return render_template("games.html")
 
 
 # *################################*#

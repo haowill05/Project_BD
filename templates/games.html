@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="dashboardStyle.css">
+
+    <script>
+        async function showAllGames() {
+            let url = '/api/games'
+            let response = await fetch(url);
+            let data = await response.json()
+
+           document.getElementById("all_Games").innerHTML = '';
+            for(i = 0; i < data["data"].length; i++){
+                document.getElementById("all_Games").innerHTML += '<b>' + data["data"][i]["game_title"] + ' :</b><br>'; // titre en bold
+                document.getElementById("all_Games").innerHTML += 'ID: ' + data["data"][i]["id"] + '<br>'; // titre en bold
+
+            }
+        }
+
+        window.onload = async function () {
+            await showAllGames();
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="logo" style="margin-left: 2vmin;">Game Center</a>
+        <div class="">
+        <div class="dropdown">
+            <button class="dropdown">Your Name</button>
+            <div class="dropdown-content">
+                <button href="#">Profile</button>
+                <button href="#">Reservations</button>
+                <button href="#">Logout</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <h4>List of all games</h4>
+    <div class="" id="all_Games">
+        <a>All games</a>
+    </div>
+
+</body>
+</html>
