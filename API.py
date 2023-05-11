@@ -1,32 +1,40 @@
 from flask import Flask, jsonify, render_template
 from mysql import connector
 from films import getFilms, get_fav_films, get_user_info
+from gameCenter import getGames
 
+# * Default flask project (don't change)
 app = Flask(__name__)
 app.secret_key = "secret_key"
 
+
+# * Database connection details
 connection = connector.connect(
     host= "localhost",
     port=3306,
     user= "root",
     password = "root",
-    database="testingFlask" #C'est le nom du schema, changer plus tardddd
+    database="Project" #was "testingFlask", change if shit fucks up
 )
 
-#creation du cursor
+# * Creating the cursor
 cursor = connection.cursor()
 
+# * Pages the user is gonna visit
 
-@app.route("/", methods=['GET'])  # endpoint / acceptant tant la méthode GET
-#@cross_origin(origin='*', headers=['Content-Type'])
+@app.route("/", methods=['GET'])  # ENDPOINT / Accepting the methods ['GET'], ['POST', 'GET']
+#@cross_origin(origin='*', headers=['Content-Type']) # * Needs to stay commented unless you have problems.. then you're fucked. GL
 def home():
-    return render_template("front.html") # Retourner le message en json. Le front s'attend en principe J du Json
+    result = getGames(connection,cursor)
+    return jsonify(result)
+    #return render_template("front.html") # * Renders the HTML page
 
+# * API Pages -- User should usually not go on these sites
 
 @app.route("/api/films", methods=['GET'])
 def films():
     result = getFilms(connection, cursor)
-    return jsonify(result)
+    return jsonify(result) # * Returns the result is JSON, easier to work with
 
 @app.route("/api/<user>/infos", methods=['GET'])
 def user_infos(user):
@@ -39,11 +47,12 @@ def fav_film(user):
     return jsonify(result)
 
 
-#Si le port 5000 ne marche pas, lancer sur port 8000
-
+# * Si le port 5000 ne marche pas, lancer sur port 8000
 #if __name__ == "__main__":
 #    app.run(port=8000, debug=True)
 
-app.run(debug=True)  # lanncement du serveur Flask
+
+# * Running the app
+app.run(debug=True)
 
 
