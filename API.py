@@ -24,6 +24,13 @@ cursor = connection.cursor()
 
 
 # * Pages the user is gonna visit
+
+@app.route("/", methods=['GET'])
+def homeTest():
+    result = getGames(connection, cursor)
+    return jsonify(result)
+
+
 @app.route("/index", methods=['GET'])
 # @cross_origin(origin='*', headers=['Content-Type']) # * Only uncomment if you know what you are doing. If you need this..then you're fucked. GL
 def home():
@@ -42,9 +49,8 @@ def login():
 
 # *################################*#
 
-# * API Pages -- User should usually not go on these sites
-
-@app.route("/api/games", methods=['GET'])  # Endpoint / Accepting the methods ['GET'], ['POST', 'GET']
+# * API Pages -- User should usually not go on these sites#
+@app.route("/api/games", methods=['GET'])  # Accepting the methods ['GET'], ['POST', 'GET']
 def games():
     result = getGames(connection, cursor)
     return jsonify(result)
