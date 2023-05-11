@@ -10,7 +10,7 @@ connection = connector.connect(
     port=3306,
     user= "root",
     password = "root",
-    database="testingFlask" #C'est le nom du schema, changer plus tard
+    database="testingFlask" #C'est le nom du schema, changer plus tardddd
 )
 
 #creation du cursor
