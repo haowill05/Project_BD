@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+        <link rel="shortcut icon" href="../rsc/console.ico" type="image/x-icon">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400&display=swap"
+            rel="stylesheet">
+        <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            color: white;
+            background-color: #100024;
+            overflow-x: hidden;
+            background-image: url(../rsc/blobanimation3.svg);
+            background-attachment: fixed;
+            background-size:  200vm;
+            background-repeat: no-repeat;
+            background-blend-mode: normal;
+            background-position: center;
+           }
+
+        .container {
+            position: relative;
+			margin: 35vmin auto; /*Position of the container*/
+			width: 325px;
+			background-color: rgba(99, 94, 105, 0.3);
+			border-radius: 7px;
+			padding: 25px;
+			box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+			text-align: center;
+            
+		}
+        h1 {
+            text-align: center;
+			margin: 7vmin;
+			font-size: 50px;
+			color: #d8d8d8;
+		}
+
+		h2 {
+			margin-top: 0;
+			font-size: 24px;
+			color: #d8d8d8;
+		}
+
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #454153;
+			border-radius: 4px;
+			box-sizing: border-box;
+			font-size: 16px;
+            background-color: #454153; /* new background color */
+            color: #d8d8d8; /* Text font color */
+            /*text-align: center;*/
+		}
+
+		input[type="submit"] {
+			background-color: #100024;
+			color: #d8d8d8;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		.color-swatch {
+			background-color: #100024;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			margin: 20px auto;
+		}
+
+/*
+        button{
+            position: relative;
+			/*margin: 1vmin auto; /*Position of the container
+			width: 100px;
+			background-color: rgba(99, 94, 105, 0.3);
+            border: 0;
+			border-radius: 7px;
+			padding: 10px;
+			box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+			text-align: center;
+            color: antiquewhite;
+        }
+        
+        .login{
+            position: absolute;
+            transform: translate(80vw);
+            transform: translate(70vmax);
+            text-size-adjust: 35px;
+        }
+
+        .login:hover{
+            background-color: rgba(48, 45, 59, 0.5);
+            cursor: pointer;
+        }
+
+        .login:active{
+            transform: translateY(1.5px);
+        }*/
+
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(67, 64, 64, 0.4);
+            padding: 10px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            cursor:default;
+        }
+
+        .logo:hover {
+            text-decoration: none;
+        }
+
+        .login-btn {
+            background-color: rgba(99, 94, 105, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        login-btn:hover {
+            background-color: #1a0036;
+        }
+
+        section{
+            margin-left: 2vmin;
+            margin-right: 2vmin;
+        }
+        
+    </style>
+    <body>
+        <header>
+            <a class="logo" style="margin-left: 2vmin;">Game Center</a>
+            <button class="login-btn" onclick="location.href = 'login.html';"style="margin-right: 2vmin;">Login</button>
+          </header>
+          
+        <!--<button class="login" onclick="location.href = '/src/login.html';" >Log-in<br> </button>--->
+        <div>
+            <h1>Game Center</h1>
+            
+        </div>
+        
+        
+        <section>
+            <h2>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste, consequuntur ipsum impedit odio illo ad voluptates eius voluptatem distinctio ex doloribus veritatis esse, dolores obcaecati! Repellat nam consectetur ad odit.</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus sunt esse quos corrupti cum? Ratione assumenda fuga reprehenderit perspiciatis fugit, dolor soluta quam quisquam aliquid incidunt distinctio omnis molestias laborum.</p>
+        </section>
+        <section>
+            <h2>Dolore, soluta ratione? Rerum expedita a repellat, quisquam quos quis sed tenetur eveniet non deserunt reiciendis similique? Explicabo ut quisquam odio accusamus vel sunt, labore impedit expedita? Illo, officiis architecto?</h2>
+            <p>Quos beatae nobis, blanditiis consequatur praesentium impedit expedita dolorum debitis est voluptate eveniet obcaecati reiciendis ea excepturi earum enim quasi dolore! Tempore perferendis veniam magni saepe libero sed minima molestias.</p>
+        </section>
+        <section>
+            <h2>Nemo ratione tenetur corrupti perferendis sed culpa laboriosam eius delectus, minima aliquam sint velit quo, magnam mollitia nulla blanditiis suscipit eveniet. Eius debitis suscipit deleniti aliquid facere cum inventore voluptatem?</h2>
+            <p>Nesciunt molestiae magni ut odio iste voluptatem quis explicabo. Saepe dolor rerum nobis, ipsa fugit tempora facere veniam dolores optio iure veritatis perspiciatis, atque itaque ratione voluptates eum recusandae earum.</p>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Projet de bases de données</title> <!--Texte qui apparait dans le nom de l'onglet -->
+
+    <!--Contient les styles CSS de cette page -->
+    <style>
+        body {
+            margin-left: 100px;
+            margin-right: 100px;
+            padding: 10px;
+            font-family: Helvetica,sans-serif;
+        }
+        .welcome{
+            text-align: center;
+        }
+        .nameInput{
+            text-align: center;
+            padding: 10px;
+            background-color: beige;
+        }
+        .main{
+            padding: 10px;
+            background-color: beige;
+            margin-top: 20px;
+
+        }
+    </style>
+
+    <!--Contient le JavaScript que nous allons utiliser pour cette page -->
+    <script>
+
+        async function showPersonalInfo(name){
+            let url = '/api/' + name + '/infos'
+            let response = await fetch(url);
+            let data = await response.json();
+
+            document.getElementById("personal_infos").innerHTML = 'ID: ' + data["id"] + '<br>'; // <br> pour aller à la ligne
+            document.getElementById("personal_infos").innerHTML += 'Nom: ' + data["name"] + '<br>'; // += pour ajouter à la suite
+            document.getElementById("personal_infos").innerHTML += 'Date de naissance: ' + data["birthdate"] + '<br>';
+            document.getElementById("personal_infos").innerHTML += 'Adresse: ' + data["address"] + '<br>';
+            document.getElementById("personal_infos").innerHTML += 'Numéro de téléphone: ' + data["phone_number"];
+        }
+
+        async function showFavFilms(name){
+            let url = '/api/' + name + '/favourite_films'
+            let response = await fetch(url);
+            let data = await response.json();
+
+            document.getElementById("fav_films").innerHTML = ''; // vider la balise
+            for(i = 0; i < data["data"].length; i++){
+
+                /*
+                let url2 = '/api/films?id=' + data["data"][i]["film_infos"]["id"]
+                let response2 = await fetch(url);
+                let data2 = await response2.json();
+
+                document.getElementById("fav_films").innerHTML += '<b>' +data2["data"][0]["title"] + ' :</b><br>';; // 0 car seuelement 1 film pour 1 id
+                */
+
+                document.getElementById("fav_films").innerHTML += '<b>' + data["data"][i]["film_infos"]["title"] + ' :</b><br>'; // titre en bold
+                document.getElementById("fav_films").innerHTML += 'ID: ' + data["data"][i]["film_infos"]["id"] + '<br>'; // titre en bold
+            }
+
+        }
+
+        async function showAllFilms(){
+            let url = '/api/films'
+            let response = await fetch(url);
+            let data = await response.json();
+
+            document.getElementById("all_films").innerHTML = ''; // vider la balise
+            for(i = 0; i < data["data"].length; i++){
+
+                document.getElementById("all_films").innerHTML += '<b>' + data["data"][i]["title"] + ' :</b><br>'; // titre en bold
+                document.getElementById("all_films").innerHTML += 'ID: ' + data["data"][i]["id"] + '<br>'; // titre en bold
+            }
+
+        }
+
+
+        async function showName(){
+            let name = document.nameForm.name.value; // récupère le nom entrée dans le champ de texte de ID name
+            document.getElementById("nameShow").innerHTML = name; // remplace le contenu de la balise de ID nameShow par name
+            await showPersonalInfo(name); // appelle la méthode d'affichage de nom personnelle
+            await showFavFilms(name);
+
+
+        }
+
+        // appel lors du chargement de la page
+        window.onload = async function (){
+            await showAllFilms();
+        }
+
+    </script>
+
+</head>
+
+<!--Contient le corps de la page-->
+<body>
+    <h1 class="welcome">Bienvenue!</h1>
+
+        <!-- Div: conteneur -->
+        <div class="nameInput">
+            <h3>Entrez le nom que vous cherchez</h3>
+
+            <!--Code de l'entrée de nom-->
+            <form name = "nameForm">
+                <input type="text" id="name" name="name" placeholder="nom cherché">
+                <input type="button" onclick="showName()" value="Submit"> <!--Le nom s'affiche au quand on clique sur ce bouton, car il appelle la méthode showName()-->
+            </form>
+        </div>
+
+        <div class="main">
+            <h3>Nom cherché: <span id="nameShow"></span> !</h3>
+
+            <h3>Résultats:</h3>
+
+            <h4>Informations personnes:</h4>
+            <div class="infos" id="personal_infos">
+                <a>Place pour les informations personnelles</a>
+            </div>
+
+            <h4>Films préférés:</h4>
+            <div class="infos" id="fav_films">
+                <a>Place pour les films préférés</a>
+            </div>
+
+            <h4>Liste de tous les films:</h4>
+            <div class="infos" id="all_films">
+                <a>Place pour tous les films</a>
+            </div>
+
+        </div>
+</body>
+</html>

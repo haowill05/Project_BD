@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Log-in</title>
+        <link rel="shortcut icon" href="../rsc/console.ico" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400&display=swap"
+            rel="stylesheet">
+        <style>
+        
+        body {
+            margin: 0;
+            font-family: 'Prompt', sans-serif;
+            color: white;
+            background-color: #100024;
+            overflow-x: hidden;
+            background-image: url(../rsc/blobanimation3.svg);
+            background-attachment: fixed;
+            background-size:  200vm;
+            background-repeat: no-repeat;
+            background-blend-mode: normal;
+            background-position: center;
+           }
+
+        .container {
+            position: relative;
+			margin: 35vmin auto; /*Position of the container*/
+			width: 325px;
+			background-color: rgba(99, 94, 105, 0.3);
+			border-radius: 7px;
+			padding: 25px;
+			box-shadow: 0 0 100px rgba(0, 0, 0, 0.4);
+			text-align: center;
+            
+		}
+        h1 {
+            text-align: center;
+			margin-top: 0;
+			font-size: 50px;
+			color: #d8d8d8;
+		}
+
+		h2 {
+			margin-top: 0;
+			font-size: 24px;
+			color: #d8d8d8;
+		}
+
+		input[type="text"], input[type="password"] {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #454153;
+			border-radius: 4px;
+			box-sizing: border-box;
+			font-size: 16px;
+            background-color: #454153; /* new background color */
+            color: #d8d8d8; /* Text font color */
+            /*text-align: center;*/
+		}
+
+		input[type="submit"] {
+			background-color: #100024;
+			color: #d8d8d8;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		.color-swatch {
+			background-color: #100024;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			margin: 20px auto;
+		}
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(67, 64, 64, 0.4);
+            padding: 10px;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            text-decoration: underline;
+        }
+
+        .login-btn {
+            background-color: #100024;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        login-btn:hover {
+            background-color: #1a0036;
+        }
+        
+    </style>
+        <body>
+            <header>
+                <a href="/src/index.html" class="logo" style="margin-left: 2vmin;">Game Center</a>
+                <!--<button class="login-btn" href="/src/login.html" style="margin-right: 2vmin;">Login</button>-->
+            </header>
+
+            <div>
+                <!--<h1>Game Center</h1>-->
+            </div>
+            <div class="container">
+                <h2 style="opacity: 1;">Login</h1>
+                <form>
+                    <label for="username" style="color : #d8d8d8">Username:</label><br>
+                    <input type="text" id="username" name="username"
+                        placeholder="Username" required style="opacity: 1;"><br>
+                    <!--<label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" placeholder="Password" required><br>
+    -->
+                    <input onclick="location.href = 'dashboard.html'" type="submit" value="Login">
+                </form>
+                <!--<div class="color-swatch"></div>--->
+            </div>
+
+
+
+
+
+
+        </body>
+    </html>
