@@ -16,8 +16,19 @@ connection = connector.connect(
     database="Project"  # was "testingFlask", change if shit fucks up
 )
 
-# * Creating the cursor
-cursor = connection.cursor()
+# * sql query wrapper
+def dbquery(q, action="select"):
+        result = []
+        with connection.cursor() as cursor:
+                cursor.execute(q)
+                if action != "select":
+                        connection.commit() # either update or insert
+                else:
+                        rows = cursor.fetchall()
+                        if rows:
+                                for r in rows:
+                                        result.append(r)
+                                return result[0][0]
 
 
 # *################################*#
